@@ -103,7 +103,7 @@ const Home = () => {
       {/* Our Stats Section */}
       <section
         id="our-stats"
-        className="text-center flex flex-col items-center justify-center px-[20%]"
+        className="text-center flex flex-col items-center justify-center px-[5%] lg:px-[20%]"
         style={{ background: 'linear-gradient(180.09deg, #170C37 0.08%, #42229D 149.64%)' }}
       >
         <div className="flex flex-col items-center py-[100px]">
@@ -127,8 +127,11 @@ const Home = () => {
               className="py-[20px] px-[45px] rounded-[5px] border-[#684EB1] border-[0.5px] flex flex-col items-center"
               style={{
                 boxShadow: '0px 4px 9.6px 0px #684EB1 inset',
+                backgroundColor : '#42229D',
               }}
             >
+         
+
               <p className="text-sm font-normal text-[#DEDEDE]">7days average APR</p>
               <p className="text-[#FAFAFA] text-base font-bold">0.40%</p>
             </div>
@@ -136,6 +139,7 @@ const Home = () => {
               className="py-[20px] px-[45px] rounded-[5px] border-[#684EB1] border-[0.5px] flex flex-col items-center"
               style={{
                 boxShadow: '0px 4px 9.6px 0px #684EB1 inset',
+                backgroundColor : '#42229D',
               }}
             >
               <p className="text-sm font-normal text-[#DEDEDE]">Total value locked</p>
@@ -145,6 +149,7 @@ const Home = () => {
               className="py-[20px] px-[45px] rounded-[5px] border-[#684EB1] border-[0.5px] flex flex-col items-center"
               style={{
                 boxShadow: '0px 4px 9.6px 0px #684EB1 inset',
+                backgroundColor : '#42229D',
               }}
             >
               <p className="text-sm font-normal text-[#DEDEDE]">Yesterday APR</p>
@@ -154,6 +159,7 @@ const Home = () => {
               className="py-[20px] px-[45px] rounded-[5px] border-[#684EB1] border-[0.5px] flex flex-col items-center"
               style={{
                 boxShadow: '0px 4px 9.6px 0px #684EB1 inset',
+                backgroundColor : '#42229D',
               }}
             >
               <p className="text-sm font-normal text-[#DEDEDE]">Nodes</p>
@@ -163,6 +169,7 @@ const Home = () => {
               className="py-[20px] px-[45px] rounded-[5px] border-[#684EB1] border-[0.5px] flex flex-col items-center"
               style={{
                 boxShadow: '0px 4px 9.6px 0px #684EB1 inset',
+                backgroundColor : '#42229D',
               }}
             >
               <p className="text-sm font-normal text-[#DEDEDE]">Total staker</p>
@@ -172,6 +179,7 @@ const Home = () => {
               className="py-[20px] px-[45px] rounded-[5px] border-[#684EB1] border-[0.5px] flex flex-col items-center"
               style={{
                 boxShadow: '0px 4px 9.6px 0px #684EB1 inset',
+                backgroundColor : '#42229D',
               }}
             >
               <p className="text-sm font-normal text-[#DEDEDE]">Staked</p>

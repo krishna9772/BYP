@@ -5,37 +5,29 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className="relative">
-      {/* Gradient Background Container */}
+
+    <footer>
       <div
-        className="absolute inset-x-0 top-0 bottom-0 z-[-1]"
+        className=" py-[100px] mx-auto"
         style={{
           background: 'linear-gradient(180.09deg, #170C37 0.08%, #42229D 149.64%)',
           height: '100%',
         }}
-      />
+      >
 
-      {/* Footer Content */}
-      <div className="relative container mx-auto py-[100px]">
-        {/* Centered Content */}
-        <div className="flex items-center justify-center space-x-4 mb-8">
-          <div>
-            <Image
-              src="/assets/certik_logo.png"
-              alt="Certik Logo"
-              width={32}
-              height={32}
-              className="w-auto h-8"
-            />
-          </div>
+        <div className='flex flex-row justify-center gap-3 items-center'>
+          <Image
+            src="/assets/certik_logo.png"
+            alt="Certik Logo"
+            width={32}
+            height={32}
+          />
           <div className="font-bold text-base text-[#FAFAFA] m-0">
             Audited by Certik
           </div>
         </div>
 
-
-        {/* Footer Sections */}
-        <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-6 gap-8 text-center lg:px-[20%] mt-[80px]">
+        <div className="grid grid-cols-1 lg:grid-cols-6 gap-8 text-center lg:px-[20%] mt-[50px]">
           {/* Staking */}
           <div className="flex flex-col items-center">
             <Image
@@ -43,10 +35,10 @@ const Footer = () => {
               alt="Company Logo"
               width={62}
               height={42}
-              className="w-auto h-8"
             />
           </div>
-          <div className='flex flex-col text-start'>
+
+          <div className='flex flex-col text-center items-center lg:text-start lg:items-start'>
             <h4 className="font-bold mb-2 text-base text-[#FAFAFA]">Staking</h4>
             <ul className="space-y-1 font-normal text-sm text-[#DEDEDE]">
               <li>
@@ -62,7 +54,7 @@ const Footer = () => {
           </div>
 
           {/* Company */}
-          <div className='flex flex-col text-start'>
+          <div className='flex flex-col text-center items-center lg:text-start lg:items-start'>
             <h4 className="font-bold mb-2 text-base text-[#FAFAFA]">Company</h4>
             <ul className="space-y-1 font-normal text-sm text-[#DEDEDE]">
               <li>
@@ -74,8 +66,9 @@ const Footer = () => {
             </ul>
           </div>
 
+
           {/* Support */}
-          <div className='flex flex-col  text-start'>
+          <div className='flex flex-col  text-center items-center lg:text-start lg:items-start'>
             <h4 className="font-bold mb-2 text-base text-[#FAFAFA]">Support</h4>
             <ul className="space-y-1 font-normal text-sm text-[#DEDEDE]">
               <li>
@@ -88,7 +81,7 @@ const Footer = () => {
           </div>
 
           {/* Community */}
-          <div className='flex flex-col  text-start'>
+          <div className='flex flex-col text-center items-center lg:text-start lg:items-start'>
             <h4 className="font-bold mb-2 text-base text-[#FAFAFA]">Community</h4>
             <ul className="space-y-1 font-normal text-sm text-[#DEDEDE]">
               <li>
@@ -98,7 +91,7 @@ const Footer = () => {
           </div>
 
           {/* Legal */}
-          <div className='flex flex-col  text-start'>
+          <div className='flex flex-col  text-center items-center lg:text-start lg:items-start'>
             <h4 className="font-bold mb-2 text-base text-[#FAFAFA]">Legal</h4>
             <ul className="space-y-1 font-normal text-sm text-[#DEDEDE]">
               <li>

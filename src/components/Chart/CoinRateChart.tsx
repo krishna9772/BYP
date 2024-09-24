@@ -87,7 +87,7 @@ const CoinRateChart: React.FC = () => {
       };
 
   return (
-    <div className="w-full h-[600px] p-20"
+    <div className="w-full lg:h-[600px] h-[400px]  p-10 lg:p-20"
     style={{
         background: 'linear-gradient(180deg, #170C37 0%, #42229D 100%)',
         // boxShadow: '0px 4px 9.6px 0px #684EB1A8',

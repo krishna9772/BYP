@@ -13,8 +13,8 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-[#140A2F] py-4 shadow-md">
-            <div className="container flex items-center justify-between relative px-8 lg:px-[20%]">
+        <nav className="bg-[#140A2F] shadow-md border-black border-[0.5px]">
+            <div className="container flex items-center justify-between relative px-8 lg:px-[20%]  py-4">
                 {/* Logo */}
                 <div className="flex items-center">
                     <Link href="/">
@@ -178,7 +178,7 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {isMenuOpen && (
-                <div className="md:hidden bg-[#140A2F] text-white py-4">
+                <div className="md:hidden bg-[#140A2F] text-white py-4  px-6 border-black border-[0.5px]">
                     <div className="space-y-4">
                         <div>
                             <button
@@ -188,7 +188,7 @@ const Navbar = () => {
                                 <span>Staking</span>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-4 w-4"
+                                    className={`ml-2 h-4 w-4 transform transition-transform duration-300 ${activeDropdown === 'staking' ? 'rotate-180' : ''}`}
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -198,10 +198,10 @@ const Navbar = () => {
                                 </svg>
                             </button>
                             {activeDropdown === 'staking' && (
-                                <div className="px-4">
-                                    <Link href="/staking-solana" className="block py-2 text-[#FAFAFA]">Staking Solana</Link>
-                                    <Link href="/withdraw" className="block py-2 text-[#FAFAFA]">Withdraw</Link>
-                                    <Link href="/swap" className="block py-2 text-[#FAFAFA]">Swap</Link>
+                                <div className="text-sm ml-5 px-4">
+                                    <Link href="/staking-solana" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">Staking Solana</Link>
+                                    <Link href="/withdraw" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">Withdraw</Link>
+                                    <Link href="/swap" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">Swap</Link>
                                 </div>
                             )}
                         </div>
@@ -214,7 +214,7 @@ const Navbar = () => {
                                 <span>Why Us?</span>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-4 w-4"
+                                    className={`ml-2 h-4 w-4 transform transition-transform duration-300 ${activeDropdown === 'why-us' ? 'rotate-180' : ''}`}
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -224,9 +224,9 @@ const Navbar = () => {
                                 </svg>
                             </button>
                             {activeDropdown === 'why-us' && (
-                                <div className="px-4">
-                                    <Link href="/roadmap" className="block py-2 text-[#FAFAFA]">Roadmap</Link>
-                                    <Link href="/whitepaper" className="block py-2 text-[#FAFAFA]">Whitepaper</Link>
+                                <div className="text-sm ml-5 px-4">
+                                    <Link href="/roadmap" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">Roadmap</Link>
+                                    <Link href="/whitepaper" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">Whitepaper</Link>
                                 </div>
                             )}
                         </div>
@@ -239,7 +239,7 @@ const Navbar = () => {
                                 <span>Support</span>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-4 w-4"
+                                    className={`ml-2 h-4 w-4 transform transition-transform duration-300 ${activeDropdown === 'support' ? 'rotate-180' : ''}`}
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -249,16 +249,16 @@ const Navbar = () => {
                                 </svg>
                             </button>
                             {activeDropdown === 'support' && (
-                                <div className="px-4">
-                                    <Link href="/faq" className="block py-2 text-[#FAFAFA]">FAQ</Link>
-                                    <Link href="/chat-support" className="block py-2 text-[#FAFAFA]">Chat Support</Link>
+                                <div className="text-sm ml-5 px-4">
+                                    <Link href="/faq" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">FAQ</Link>
+                                    <Link href="/chat-support" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">Chat Support</Link>
                                 </div>
                             )}
                         </div>
 
                         <div className="px-4">
                             <Link href="/start-staking">
-                                <button className="bg-gradient-to-r from-[#42229D] to-[#470038] text-white px-6 py-2 rounded-md shadow-lg hover:opacity-90 transition-opacity w-full flex justify-center">
+                                <button className="bg-gradient-to-r from-[#42229D] to-[#470038] text-white px-6 py-2 rounded-md shadow-lg hover:opacity-90 transition-opacity w-full flex justify-center items-center">
                                     Start Staking
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
