@@ -29,3 +29,15 @@ body {
     text-wrap: balance;
   }
 }
+
+/* In globals.css or your component's CSS module */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* For Firefox */
+}
+

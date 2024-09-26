@@ -4,8 +4,9 @@ import Image from "next/image";
 const WhitePaper = () => {
     return (
         <div className="">
+
             {/* First Section with Background */}
-            <div className="bg-[#28145E80] text-center py-[20px]">
+            <div className="bg-[#20104c] text-center py-[20px]">
                 <h3 className="text-2xl font-semibold text-[#FAFAFA]">BYP Whitepaper</h3>
                 <p className="text-base font-normal text-[#DDDDDD]">
                     A decentralized future for secure staking

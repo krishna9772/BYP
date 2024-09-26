@@ -8,20 +8,20 @@ const Home = () => {
       <div
         className="bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/assets/home_main_bg.png)',
-          padding: '80px 20%',
+          backgroundImage: 'url(/assets/home_main_bg.jpg)',
+          padding: '60px 20%',
           textAlign: 'center'
         }}
       >
         {/* Title Text */}
         <h1
-
           style={{
             fontSize: '36px', // Adjust as needed
             background: 'linear-gradient(269.57deg, #684EB1 37.06%, #FAFAFA 67.68%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             margin: 0,
+            fontWeight : 700,
           }}
         >
           Stake Solana
@@ -35,18 +35,23 @@ const Home = () => {
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             margin: 0,
+            fontWeight : 700,
           }}
         >
           Double rewards and plus more coins
         </h1>
 
         {/* Introductory Text */}
-        <div className="text-[#B3A7D8]  mt-4">
-          BYP is one of the best decentralized liquid staking protocols for Solana.
+        <div className="text-[#B3A7D8] text-xl  mt-4">
+          BYP is one of the best decentralized liquid staking <br/> protocols for Solana.
         </div>
 
         {/* Info Cards */}
-        <div className="bg-[#42229D] flex flex-col md:flex-row justify-around items-center p-10 mt-[200px] mb-12 gap-8 md:gap-4">
+        
+
+        <div className="bg-[#42229D] flex flex-col md:flex-row justify-around items-center p-10 mt-[300px] mb-20 gap-8 md:gap-4 rounded-[5px] md:space-x-8"
+        style={{ boxShadow: "0px 4px 25.1px 0px #0000001F" }}
+        >
           {/* Reward Info */}
           <div className="text-center flex flex-col items-center">
             <div className="bg-[#351B7E] w-20 h-20 flex items-center justify-center rounded-full mb-4">
@@ -59,7 +64,7 @@ const Home = () => {
               />
             </div>
             <p className="text-[#FAFAFA] font-semibold">Maximized Rewards</p>
-            <p className="text-[#DDDDDD] max-w-xs">
+            <p className="text-[#DDDDDD] max-w-xs text-xs mt-2 leading-5">
               Earn higher returns with our competitive staking rates, designed to give you the best value for your SOL investments.
             </p>
           </div>
@@ -76,7 +81,7 @@ const Home = () => {
               />
             </div>
             <p className="text-[#FAFAFA] font-semibold">Reliable security</p>
-            <p className="text-[#DDDDDD] max-w-xs">
+            <p className="text-[#DDDDDD] max-w-xs text-xs mt-2 leading-5">
               Top-tier security measures ensure your assets are protected the contribution to stability and growth of  Solana network.
             </p>
           </div>
@@ -93,7 +98,7 @@ const Home = () => {
               />
             </div>
             <p className="text-[#FAFAFA] font-semibold">Low Fees</p>
-            <p className="text-[#DDDDDD] max-w-xs">
+            <p className="text-[#DDDDDD] max-w-xs text-xs mt-2 leading-5">
               Benefit from minimal fees, ensuring that more of your earnings stay in your pocket while you stake your SOL.
             </p>
           </div>
@@ -208,7 +213,7 @@ const Home = () => {
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center text-center"
         style={{
           backgroundImage: 'url(/assets/community_bg.png)',
-          padding: '30px 20%',
+          height : 447,
         }}
       >
         <div className="flex flex-col items-center justify-center max-w-lg mb-[70px] py-[80px]">
