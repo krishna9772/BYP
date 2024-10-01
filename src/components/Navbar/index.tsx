@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -8,13 +8,34 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
+    const dropdownRef = useRef<HTMLDivElement | null>(null);
+
     const handleDropdown = (menu: string) => {
         setActiveDropdown(activeDropdown === menu ? null : menu);
     };
 
+    const closeDropdown = () => {
+        setActiveDropdown(null); // Close the dropdown after clicking an option
+    };
+
+    // Handle click outside the dropdown to close it
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setActiveDropdown(null); // Close the dropdown
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [dropdownRef]);
+
+
     return (
         <nav className="bg-[#140A2F] shadow-md ">
-            <div className="container flex items-center justify-between relative px-8 lg:px-[20%]  py-4">
+            <div className=" flex items-center justify-between relative px-8 lg:px-[20%] py-4">
                 {/* Logo */}
                 <div className="flex items-center">
                     <Link href="/">
@@ -29,9 +50,9 @@ const Navbar = () => {
                 </div>
 
                 {/* Centered Menu Items */}
-                <div className="hidden md:flex flex-1 justify-end items-center space-x-8 lg:space-x-[60px] text-white">
+                <div className="hidden md:flex items-center gap-[60px] text-white" ref={dropdownRef}>
                     {/* Staking */}
-                    <div className="relative group">
+                    <div className="relative group " >
                         <button
                             className="flex items-center space-x-1 focus:outline-none transition duration-300 group-hover:text-gray-300"
                             onClick={() => handleDropdown('staking')}
@@ -49,14 +70,14 @@ const Navbar = () => {
                             </svg>
                         </button>
                         {activeDropdown === 'staking' && (
-                            <div className="text-sm absolute left-0 mt-2 w-48 bg-[#140A2F] rounded-md shadow-lg py-2 transition-opacity duration-300">
-                                <Link href="/staking-solana" className="block px-4 py-2 text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300">
+                            <div className="text-sm absolute left-1/2 transform -translate-x-1/2 mt-2 w-[140px] bg-[#140A2F] rounded-md shadow-lg p-[12px] transition-opacity duration-300 space-y-[10px]">
+                                <Link href="/staking-solana" className="block px-[10px] py-[3px] rounded-[3px] text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300" onClick={closeDropdown}>
                                     Staking Solana
                                 </Link>
-                                <Link href="/withdraw" className="block px-4 py-2 text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300">
+                                <Link href="/withdraw" className="block px-[10px] py-[3px] rounded-[3px] text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300" onClick={closeDropdown}>
                                     Withdraw
                                 </Link>
-                                <Link href="/swap" className="block px-4 py-2 text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300">
+                                <Link href="/swap" className="block px-[10px] py-[3px] rounded-[3px] text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300" onClick={closeDropdown}>
                                     Swap
                                 </Link>
                             </div>
@@ -82,11 +103,11 @@ const Navbar = () => {
                             </svg>
                         </button>
                         {activeDropdown === 'why-us' && (
-                            <div className="text-sm absolute left-0 mt-2 w-48 bg-[#140A2F] rounded-md shadow-lg py-2 transition-opacity duration-300">
-                                <Link href="/roadmap" className="block px-4 py-2 text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300">
+                           <div className="text-sm absolute left-1/2 transform -translate-x-1/2 mt-2 w-[140px] bg-[#140A2F] rounded-md shadow-lg p-[12px] transition-opacity duration-300 space-y-[10px]">
+                                <Link href="/roadmap"  className="block px-[10px] py-[3px] rounded-[3px] text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300" onClick={closeDropdown}>
                                     Roadmap
                                 </Link>
-                                <Link href="/whitepaper" className="block px-4 py-2 text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300">
+                                <Link href="/whitepaper"  className="block px-[10px] py-[3px] rounded-[3px] text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300" onClick={closeDropdown}>
                                     Whitepaper
                                 </Link>
                             </div>
@@ -112,11 +133,11 @@ const Navbar = () => {
                             </svg>
                         </button>
                         {activeDropdown === 'support' && (
-                            <div className="text-sm absolute left-0 mt-2 w-48 bg-[#140A2F] rounded-md shadow-lg py-2 transition-opacity duration-300">
-                                <Link href="/faq" className="block px-4 py-2 text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300">
+                           <div className="text-sm absolute left-1/2 transform -translate-x-1/2 mt-2 w-[140px] bg-[#140A2F] rounded-md shadow-lg p-[12px] transition-opacity duration-300 space-y-[10px]">
+                                <Link href="/faq"  className="block px-[10px] py-[3px] rounded-[3px] text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300" onClick={closeDropdown}>
                                     FAQ
                                 </Link>
-                                <Link href="/chat-support" className="block px-4 py-2 text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300">
+                                <Link href="/chat-support"  className="block px-[10px] py-[3px] rounded-[3px] text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300" onClick={closeDropdown}>
                                     Chat Support
                                 </Link>
                             </div>
@@ -198,10 +219,10 @@ const Navbar = () => {
                                 </svg>
                             </button>
                             {activeDropdown === 'staking' && (
-                                <div className="text-sm ml-5 px-4">
-                                    <Link href="/staking-solana" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">Staking Solana</Link>
-                                    <Link href="/withdraw" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">Withdraw</Link>
-                                    <Link href="/swap" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">Swap</Link>
+                                <div className="text-sm ml-3 px-4">
+                                    <Link href="/staking-solana" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300 rounded-[3px] px-[10px]">Staking Solana</Link>
+                                    <Link href="/withdraw" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300 rounded-[3px] px-[10px]">Withdraw</Link>
+                                    <Link href="/swap" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300 rounded-[3px] px-[10px]">Swap</Link>
                                 </div>
                             )}
                         </div>
@@ -224,9 +245,9 @@ const Navbar = () => {
                                 </svg>
                             </button>
                             {activeDropdown === 'why-us' && (
-                                <div className="text-sm ml-5 px-4">
-                                    <Link href="/roadmap" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">Roadmap</Link>
-                                    <Link href="/whitepaper" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">Whitepaper</Link>
+                                <div className="text-sm ml-3 px-4">
+                                    <Link href="/roadmap" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300 rounded-[3px] px-[10px]">Roadmap</Link>
+                                    <Link href="/whitepaper" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300 rounded-[3px] px-[10px]">Whitepaper</Link>
                                 </div>
                             )}
                         </div>
@@ -249,9 +270,9 @@ const Navbar = () => {
                                 </svg>
                             </button>
                             {activeDropdown === 'support' && (
-                                <div className="text-sm ml-5 px-4">
-                                    <Link href="/faq" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">FAQ</Link>
-                                    <Link href="/chat-support" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300">Chat Support</Link>
+                                <div className="text-sm ml-3 px-4">
+                                    <Link href="/faq" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300 rounded-[3px] px-[10px]">FAQ</Link>
+                                    <Link href="/chat-support" className="block py-2 text-[#DEDEDE] hover:bg-[#28145E] transition-colors duration-300 rounded-[3px] px-[10px]">Chat Support</Link>
                                 </div>
                             )}
                         </div>
