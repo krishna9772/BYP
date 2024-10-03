@@ -17,9 +17,9 @@ const CoinRateChart: React.FC = () => {
             label: 'Rate',
             data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 80, 70], // Example data
             fill: false,
-            backgroundColor: '#4A90E2',
+            backgroundColor: '#28145E',
             borderColor: '#684EB1',
-
+            boxShadow : '0px 4px 9.6px 0px #684EB1 inset',
             borderWidth: 1,
             tension: 0.1,
             pointRadius: 0, 

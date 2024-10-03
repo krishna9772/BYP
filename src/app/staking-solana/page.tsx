@@ -110,7 +110,7 @@ const StakingSolana = () => {
                 </div>
 
                 <div className="flex flex-col md:flex-row md:justify-center md:space-x-4 md:px-[20%]">
-                    <div className="w-full flex justify-center mb-4 md:mb-0">
+                    <div className=" flex justify-center mb-4 md:mb-0">
                         <StakingCard />
                     </div>
                     <div className="mx-auto">
