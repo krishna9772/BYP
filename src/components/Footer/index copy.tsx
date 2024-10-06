@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center lg:px-[20%] mt-[50px]">
+        <div className="grid grid-cols-1 lg:grid-cols-6 gap-8 text-center lg:px-[20%] mt-[50px]">
           {/* Staking */}
           <div className="flex flex-col items-center">
             <Image

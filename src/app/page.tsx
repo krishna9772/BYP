@@ -49,7 +49,7 @@ const Home = () => {
         {/* Info Cards */}
         
 
-        <div className="bg-[#42229D] flex flex-col md:flex-row justify-around items-center p-10 mt-[300px] mb-20 gap-8 md:gap-4 rounded-[5px] md:space-x-8"
+        <div className="bg-[#42229D] flex flex-col  md:flex-row justify-around items-start p-10 mt-[300px] mb-20 gap-8 md:gap-4 rounded-[5px] md:space-x-8"
         style={{ boxShadow: "0px 4px 25.1px 0px #0000001F" }}
         >
           {/* Reward Info */}

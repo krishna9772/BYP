@@ -59,18 +59,14 @@ const StakingCard = () => {
                   className="border border-[#28145E] text-[#FAFAFA] bg-[#140A2F] px-4 py-2 rounded-[8px] text-xs font-semibold flex items-center justify-between gap-3"
                 >
                   {selectedOption}
-                  <span className="ml-2">
-                    {/* {dropdownOpen ? "▲" : "▼"} */}
-
-                    {
-                        <Image
-                        src="/assets/down_arrow.png"
-                        alt="Down Arrow"
-                        width={13}
-                        height={8}
-                      />
-                    }
-                  </span>
+                  <span className={`ml-2 transform ${dropdownOpen ? "rotate-180" : ""}`}>
+    <Image
+      src="/assets/down_arrow.png"
+      alt="Down Arrow"
+      width={13}
+      height={8}
+    />
+  </span>
                 </button>
 
                 {dropdownOpen && (
