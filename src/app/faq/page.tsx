@@ -27,18 +27,27 @@ const Faq = () => {
 
                     {/* Responsive Grid for Accordion */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <Accordion title="What is BYP?">
-                            <p>This is the content for section 1.</p>
-                        </Accordion>
-                        <Accordion title="How do I start staking on BYP?">
-                            <p>This is the content for section 2.</p>
-                        </Accordion>
-                        <Accordion title="What staking options are available?">
-                            <p>This is the content for section 3.</p>
-                        </Accordion>
-                        <Accordion title="How can I withdraw my staked tokens?">
-                            <p>This is the content for section 4.</p>
-                        </Accordion>
+                        <div>
+                            <Accordion title="What is BYP?">
+                                <p className="text-[#DDDDDD] text-sm">To start staking on BYP, log into your account, ensure your wallet has Solana (SOL)  and navigate to the **Staking** section. Select **Stake Solana**, enter the amount and confirm the transaction. For assistance, contact **Chat Support**.</p>
+                            </Accordion>
+                        </div>
+                        <div>
+                            <Accordion title="How do I start staking on BYP?">
+                                <p className="text-[#DDDDDD] text-sm">To start staking on BYP, log into your account, ensure your wallet has Solana (SOL)  and navigate to the **Staking** section. Select **Stake Solana**, enter the amount and confirm the transaction. For assistance, contact **Chat Support**.</p>
+                            </Accordion>
+                        </div>
+
+                        <div>
+                            <Accordion title="What staking options are available?">
+                                <p className="text-[#DDDDDD] text-sm">To start staking on BYP, log into your account, ensure your wallet has Solana (SOL)  and navigate to the **Staking** section. Select **Stake Solana**, enter the amount and confirm the transaction. For assistance, contact **Chat Support**.</p>
+                            </Accordion>
+                        </div>
+                        <div>
+                            <Accordion title="How can I withdraw my staked tokens?">
+                                <p className="text-[#DDDDDD] text-sm">To start staking on BYP, log into your account, ensure your wallet has Solana (SOL)  and navigate to the **Staking** section. Select **Stake Solana**, enter the amount and confirm the transaction. For assistance, contact **Chat Support**.</p>
+                            </Accordion>
+                        </div>
                     </div>
                 </div>
 
@@ -55,18 +64,26 @@ const Faq = () => {
 
                     {/* Responsive Grid for Accordion */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <Accordion title="What is the swapping feature?">
-                            <p>This is the content for section 1.</p>
-                        </Accordion>
-                        <Accordion title="How does BYP secure my assets?">
-                            <p>This is the content for section 2.</p>
-                        </Accordion>
-                        <Accordion title="What should I do if I encounter an issue?">
-                            <p>This is the content for section 3.</p>
-                        </Accordion>
-                        <Accordion title="How can I stay updated on BYP news?">
-                            <p>This is the content for section 4.</p>
-                        </Accordion>
+                        <div>
+                            <Accordion title="What is the swapping feature?">
+                                <p className="text-[#DDDDDD] text-sm">To start staking on BYP, log into your account, ensure your wallet has Solana (SOL)  and navigate to the **Staking** section. Select **Stake Solana**, enter the amount and confirm the transaction. For assistance, contact **Chat Support**.</p>
+                            </Accordion>
+                        </div>
+                        <div>
+                            <Accordion title="How does BYP secure my assets?">
+                                <p className="text-[#DDDDDD] text-sm">To start staking on BYP, log into your account, ensure your wallet has Solana (SOL)  and navigate to the **Staking** section. Select **Stake Solana**, enter the amount and confirm the transaction. For assistance, contact **Chat Support**.</p>
+                            </Accordion>
+                        </div>
+                        <div>
+                            <Accordion title="What should I do if I encounter an issue?">
+                                <p className="text-[#DDDDDD] text-sm">To start staking on BYP, log into your account, ensure your wallet has Solana (SOL)  and navigate to the **Staking** section. Select **Stake Solana**, enter the amount and confirm the transaction. For assistance, contact **Chat Support**.</p>
+                            </Accordion>
+                        </div>
+                        <div>
+                            <Accordion title="How can I stay updated on BYP news?">
+                                <p className="text-[#DDDDDD] text-sm">To start staking on BYP, log into your account, ensure your wallet has Solana (SOL)  and navigate to the **Staking** section. Select **Stake Solana**, enter the amount and confirm the transaction. For assistance, contact **Chat Support**.</p>
+                            </Accordion>
+                        </div>
                     </div>
                 </div>
 
@@ -150,12 +167,12 @@ const Faq = () => {
 
                             {/* Title */}
                             <h3 className="font-bold text-xl md:text-2xl text-[#FAFAFA] mb-3">
-                            Chat with BYP assistant
+                                Chat with BYP assistant
                             </h3>
 
                             {/* Paragraph */}
                             <p className="text-sm md:text-base text-[#DDDDDD] mb-6">
-                            Our chat support is here to assist you with any questions or issues. Get quick, real-time assistance directly from our support team.
+                                Our chat support is here to assist you with any questions or issues. Get quick, real-time assistance directly from our support team.
                             </p>
 
                             {/* Gradient Button */}

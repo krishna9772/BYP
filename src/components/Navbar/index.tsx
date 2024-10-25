@@ -80,7 +80,7 @@ const Navbar = () => {
                             </svg>
                         </button>
                         {activeDropdown === 'staking' && (
-                            <div className="text-sm absolute left-1/2 transform -translate-x-1/2 mt-2 w-[140px] bg-[#140A2F] rounded-md shadow-lg p-[12px] transition-opacity duration-300 space-y-[10px]">
+                            <div className="text-sm absolute left-1/2 transform -translate-x-1/2 mt-2 w-[160px] bg-[#140A2F] rounded-md shadow-lg p-[12px] transition-opacity duration-300 space-y-[10px]">
                                 <Link href="/staking-solana" className="block px-[10px] py-[3px] rounded-[3px] text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300" onClick={closeDropdown}>
                                     Staking Solana
                                 </Link>
@@ -113,7 +113,7 @@ const Navbar = () => {
                             </svg>
                         </button>
                         {activeDropdown === 'why-us' && (
-                            <div className="text-sm absolute left-1/2 transform -translate-x-1/2 mt-2 w-[140px] bg-[#140A2F] rounded-md shadow-lg p-[12px] transition-opacity duration-300 space-y-[10px]">
+                            <div className="text-sm absolute left-1/2 transform -translate-x-1/2 mt-2 w-[160px] bg-[#140A2F] rounded-md shadow-lg p-[12px] transition-opacity duration-300 space-y-[10px]">
                                 <Link href="/roadmap" className="block px-[10px] py-[3px] rounded-[3px] text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300" onClick={closeDropdown}>
                                     Roadmap
                                 </Link>
@@ -143,7 +143,7 @@ const Navbar = () => {
                             </svg>
                         </button>
                         {activeDropdown === 'support' && (
-                            <div className="text-sm absolute left-1/2 transform -translate-x-1/2 mt-2 w-[140px] bg-[#140A2F] rounded-md shadow-lg p-[12px] transition-opacity duration-300 space-y-[10px]">
+                            <div className="text-sm absolute left-1/2 transform -translate-x-1/2 mt-2 w-[160px] bg-[#140A2F] rounded-md shadow-lg p-[12px] transition-opacity duration-300 space-y-[10px]">
                                 <Link href="/faq" className="block px-[10px] py-[3px] rounded-[3px] text-[#FAFAFA] hover:bg-[#28145E] transition-colors duration-300" onClick={closeDropdown}>
                                     FAQ
                                 </Link>
