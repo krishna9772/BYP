@@ -33,9 +33,9 @@ const WhitePaper = () => {
 
                     {/* Paragraph Text */}
                     <div className="text-base font-normal text-[#DDDDDD] text-center mb-10">
-                        <p>This whitepaper outlines the vision, architecture, and strategic roadmap of BYP, a cutting-edge platform designed to offer secure and user-friendly staking solutions.</p>
-                        <p>From the initial launch to long-term sustainability, BYP is committed to empowering users through transparent governance, advanced security measures, and an engaged community.</p>
-                        <p>Explore how BYP aims to revolutionize staking by providing a reliable and scalable ecosystem for all participants.</p>
+                        <p className="mb-3">This whitepaper outlines the vision, architecture, and strategic roadmap of BYP, a cutting-edge platform designed to offer secure and user-friendly staking solutions.</p>
+                        <p className="mb-3">From the initial launch to long-term sustainability, BYP is committed to empowering users through transparent governance, advanced security measures, and an engaged community.</p>
+                        <p className="mb-3">Explore how BYP aims to revolutionize staking by providing a reliable and scalable ecosystem for all participants.</p>
                     </div>
 
                     <GradientButton href="/start-staking" label="Download white paper" download = {true}/>
