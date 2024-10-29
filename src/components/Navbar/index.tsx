@@ -156,7 +156,7 @@ const Navbar = () => {
 
                     {/* Start Staking Button */}
                     <div>
-                        <Link href="/start-staking">
+                        <Link href="/staking-solana">
                             <button className="bg-gradient-to-r from-[#42229D] to-[#470038] text-white px-6 py-2 rounded-md shadow-lg hover:opacity-90 transition-opacity flex items-center">
                                 <span>Start Staking</span>
                                 <svg
@@ -293,7 +293,7 @@ const Navbar = () => {
 
                         
                         <div className="px-4">
-                            <Link href="/start-staking">
+                            <Link href="/staking-solana">
                                 <button className="bg-gradient-to-r from-[#42229D] to-[#470038] text-white px-6 py-2 rounded-md shadow-lg hover:opacity-90 transition-opacity w-full flex justify-center items-center">
                                     Start Staking
                                     <svg

@@ -6,23 +6,54 @@ import PrivateFarm from "@/components/Staking/PrivateFarm";
 import StakingCard from "@/components/Staking/StakingCard";
 import WalletModal from "@/components/Modal/WalletModal"; // Import the modal component
 import Image from "next/image";
+import ConnectWalletModal from "@/components/Modal/ConnectWalletModal";
 
 const StakingSolana = () => {
     const [isModalOpen, setModalOpen] = useState(false); // State to manage modal
+    const [isConnectWalletModalOpen, setConnectWalletModalOpen] = useState(false); // State to manage modal
     const [showOptions, setShowOptions] = useState(false); // State for showing options
     const { publicKey, disconnect } = useWallet(); // Get publicKey and disconnect function
     const walletRef = useRef<HTMLDivElement>(null);
 
     const toggleOptions = () => setShowOptions(!showOptions); // Toggle options visibility
-    const openModal = () => setModalOpen(true);
+    const openModal = () => {
+        setModalOpen(true)
+        setConnectWalletModalOpen(false)
+    };
     const closeModal = () => setModalOpen(false);
+
+    const openConnectWalletModal = () => setConnectWalletModalOpen(true);
+    const closeConnectWalletModal = () => setConnectWalletModalOpen(false);
 
     const copyAddress = () => {
         navigator.clipboard.writeText(publicKey?.toBase58() || "");
         alert("Address copied to clipboard");
     };
 
+    // useEffect(() => {
+    //     const handleClickOutside = (event: MouseEvent) => {
+    //         if (walletRef.current && !walletRef.current.contains(event.target as Node)) {
+    //             setShowOptions(false); // Close dropdown if clicked outside
+    //         }
+    //     };
+
+    //     document.addEventListener("mousedown", handleClickOutside);
+    //     return () => {
+    //         document.removeEventListener("mousedown", handleClickOutside);
+    //     };
+    // }, []);
+
     useEffect(() => {
+        // Check if the user has visited the site before
+        const hasVisitedBefore = localStorage.getItem("hasVisited");
+
+        if (!hasVisitedBefore) {
+            // Show the modal for first-time visitors
+            setConnectWalletModalOpen(true);
+            // Set a flag in localStorage to mark the user as having visited
+            localStorage.setItem("hasVisited", "true");
+        }
+
         const handleClickOutside = (event: MouseEvent) => {
             if (walletRef.current && !walletRef.current.contains(event.target as Node)) {
                 setShowOptions(false); // Close dropdown if clicked outside
@@ -34,6 +65,7 @@ const StakingSolana = () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
+
 
     return (
         <div
@@ -111,16 +143,17 @@ const StakingSolana = () => {
 
                 <div className="flex flex-col md:flex-row md:justify-center md:space-x-4 md:px-[20%]">
                     <div className=" flex justify-center mb-4 md:mb-0">
-                        <StakingCard />
+                        <StakingCard publicKey={publicKey ? publicKey.toString() : ''}/>
                     </div>
                     <div className="mx-auto">
-                        <PrivateFarm />
+                        <PrivateFarm publicKey={publicKey ? publicKey.toString() : ''}/>
                     </div>
                 </div>
             </div>
 
             {/* Wallet Modal */}
             <WalletModal isOpen={isModalOpen} onClose={closeModal} />
+            <ConnectWalletModal isOpen={isConnectWalletModalOpen} onClose={closeConnectWalletModal} openModal = {openModal}/>
         </div>
     );
 };
