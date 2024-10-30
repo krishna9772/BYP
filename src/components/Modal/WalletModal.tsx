@@ -23,10 +23,11 @@ const WalletModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             console.error("Failed to connect wallet:", error);
         }
     };
+  
 
     return (
         <div className="fixed inset-0 flex items-center justify-center z-50">
-            <div className="bg-black opacity-50 fixed inset-0" onClick={onClose}></div>
+            <div className="bg-[#140A2FD9]  fixed inset-0" onClick={onClose}></div>
             <div className="bg-[#140A2F] rounded-lg shadow-lg z-10 w-[398px]">
                 <div className="p-[20px] flex justify-end">
                     <Image

@@ -2,7 +2,13 @@ import Image from "next/image";
 import { useState } from "react";
 import GradientButton from "../Button/GradientButton";
 
-const StakingCard = () => {
+
+interface StakingCardProps {
+  publicKey: string;
+}
+
+
+const StakingCard: React.FC<StakingCardProps> = ({ publicKey }) => {
   const [activeTab, setActiveTab] = useState("Stake");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("Value type");
@@ -197,9 +203,20 @@ const StakingCard = () => {
             <div className="w-full mt-10">
               {/* <GradientButton href="/start-staking" label="Stake" download = {false}/> */}
               
-              <button className="bg-gradient-to-r from-[#42229D] to-[#470038] text-white  rounded-[8px] shadow-lg hover:opacity-90 transition-opacity flex items-center w-full h-[50px] justify-center">
+              {/* <button className="bg-gradient-to-r from-[#42229D] to-[#470038] text-white  rounded-[8px] shadow-lg hover:opacity-90 transition-opacity flex items-center w-full h-[50px] justify-center">
                 <span>Stake</span>
-              </button>
+              </button> */}
+              <button
+                  className={`w-full py-[12px] rounded-[8px] shadow-lg flex items-center justify-center mt-[45px] ${publicKey
+                          ? 'bg-gradient-to-r from-[#42229D] to-[#470038] text-white hover:opacity-90 transition-opacity'
+                          : 'bg-[#2A2538] text-[#A7A7A7] cursor-not-allowed opacity-90'
+                      }`}
+                  disabled={!publicKey} // Disable button if publicKey does not exist
+              >
+                  <span className="font-semibold">
+                      {publicKey ? 'Stake' : 'Stake'} {/* Text stays "Withdraw" */}
+                  </span>
+                </button>
    
             </div>
           </div>
@@ -360,9 +377,21 @@ const StakingCard = () => {
             <div className="w-full mt-10">
               {/* <GradientButton href="/start-staking" label="Stake" download = {false}/> */}
               
-              <button className="bg-gradient-to-r from-[#42229D] to-[#470038] text-white  rounded-[8px] shadow-lg hover:opacity-90 transition-opacity flex items-center w-full h-[50px] justify-center">
+              {/* <button className="bg-gradient-to-r from-[#42229D] to-[#470038] text-white  rounded-[8px] shadow-lg hover:opacity-90 transition-opacity flex items-center w-full h-[50px] justify-center">
                 <span>Unstake</span>
-              </button>
+              </button> */}
+               <button
+                  className={`w-full py-[12px] rounded-[8px] shadow-lg flex items-center justify-center mt-[45px] ${publicKey
+                          ? 'bg-gradient-to-r from-[#42229D] to-[#470038] text-white hover:opacity-90 transition-opacity'
+                          : 'bg-[#2A2538] text-[#A7A7A7] cursor-not-allowed opacity-90'
+                      }`}
+                  disabled={!publicKey} // Disable button if publicKey does not exist
+              >
+                  <span className="font-semibold">
+                      {publicKey ? 'Unstake' : 'Unstake'} {/* Text stays "Withdraw" */}
+                  </span>
+                </button>
+   
    
             </div>
           </div>
