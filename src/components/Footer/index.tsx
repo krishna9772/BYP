@@ -31,10 +31,10 @@ const Footer = () => {
           {/* Staking */}
           <div className="flex flex-col items-center">
             <Image
-              src="/assets/company_logo.png"
+              src="/assets/byp_logo.png"
               alt="Company Logo"
-              width={62}
-              height={42}
+              width={90}
+              height={60}
             />
           </div>
 

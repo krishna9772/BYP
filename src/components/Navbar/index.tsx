@@ -50,10 +50,10 @@ const Navbar = () => {
                 <div className="flex items-center">
                     <Link href="/" onClick={closeMobileDropdown}>
                         <Image
-                            src="/assets/company_logo.png"
+                            src="/assets/byp_logo.png"
                             alt="Logo"
-                            width={40}
-                            height={33}
+                            width={70}
+                            height={50}
                             className="cursor-pointer"
                         />
                     </Link>

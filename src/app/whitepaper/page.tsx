@@ -7,7 +7,7 @@ const WhitePaper = () => {
 
             {/* First Section with Background */}
             <div className="bg-[#20104c] text-center py-[20px]">
-                <h3 className="text-2xl font-semibold text-[#FAFAFA]">BYP Whitepaper</h3>
+                <h3 className="text-2xl font-semibold text-[#FAFAFA] mb-2">BYP Whitepaper</h3>
                 <p className="text-base font-normal text-[#DDDDDD]">
                     A decentralized future for secure staking
                 </p>

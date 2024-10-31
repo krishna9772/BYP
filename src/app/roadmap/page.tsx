@@ -26,7 +26,7 @@ const RoadMap: React.FC = () => {
     return (
         <div>
             <div className="bg-[#20104c] text-center py-[20px]">
-            <h3 className="text-2xl font-semibold text-[#FAFAFA]">Roadmap overview</h3>
+            <h3 className="text-2xl font-semibold text-[#FAFAFA] mb-2">Roadmap overview</h3>
                 <p className="text-base font-normal text-[#DDDDDD]">
                     Building a secure and engaged community
                 </p>
