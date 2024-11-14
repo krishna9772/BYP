@@ -30,12 +30,15 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center lg:px-[20%] mt-[50px]">
           {/* Staking */}
           <div className="flex flex-col items-center">
-            <Image
-              src="/assets/byp_logo.png"
-              alt="Company Logo"
-              width={90}
-              height={60}
-            />
+          <div className="logo-container">
+              <Image
+                  src="/assets/byp_logo.png"
+                  alt="Logo"
+                  width={200}
+                  height={200}
+                  className="footer-logo cursor-pointer"
+              />
+          </div>
           </div>
 
           <div className='flex flex-col text-center items-center lg:text-start lg:items-start'>

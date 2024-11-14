@@ -45,16 +45,16 @@ const Navbar = () => {
 
     return (
         <nav className="bg-[#140A2F] shadow-md ">
-            <div className=" flex items-center justify-between relative px-8 lg:px-[20%] py-4">
+            <div className=" flex items-center justify-between relative px-8 lg:px-[20%]">
                 {/* Logo */}
                 <div className="flex items-center">
                     <Link href="/" onClick={closeMobileDropdown}>
                         <Image
                             src="/assets/byp_logo.png"
                             alt="Logo"
-                            width={70}
-                            height={50}
-                            className="cursor-pointer"
+                            width={200}
+                            height={200}
+                            className="logo cursor-pointer"
                         />
                     </Link>
                 </div>

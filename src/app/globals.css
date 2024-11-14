@@ -41,3 +41,22 @@ input[type="number"] {
   -moz-appearance: textfield; /* For Firefox */
 }
 
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Adjust to fit your navbar height */
+  overflow: hidden;
+}
+
+.logo {
+  max-width: 50% !important;
+  max-height: 100% !important;
+  object-fit: contain;
+}
+
+.footer-logo {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain;
+}
