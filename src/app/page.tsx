@@ -5,108 +5,104 @@ import Image from "next/image";
 const Home = () => {
   return (
     <div>
-      <div
-        className="bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url(/assets/home_main_bg.jpg)',
-          padding: '60px 20%',
-          textAlign: 'center'
-        }}
-      >
-        {/* Title Text */}
-        <h1
+      {/* Background Video Section */}
+      <div className="relative">
+        {/* Video Background */}
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+          src="/assets/home_main_bg_video.mp4" // Replace with your video file path
+          autoPlay
+          loop
+          muted
+          playsInline
+        ></video>
+
+        {/* Content Overlay */}
+        <div
+          className="text-center text-white"
           style={{
-            fontSize: '36px', // Adjust as needed
-            background: 'linear-gradient(269.57deg, #684EB1 37.06%, #FAFAFA 67.68%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            margin: 0,
-            fontWeight : 700,
+            padding: '60px 20%',
+            position: 'relative',
+            zIndex: 10,
           }}
         >
-          Stake Solana
-        </h1>
+          {/* Title Text */}
+          <h1
+            style={{
+              fontSize: '36px',
+              background: 'linear-gradient(269.57deg, #684EB1 37.06%, #FAFAFA 67.68%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              margin: 0,
+              fontWeight: 700,
+            }}
+          >
+            Stake Solana
+          </h1>
 
-        {/* Subtitle Text */}
-        <h1
-          style={{
-            fontSize: '36px', // Adjust as needed
-            background: 'linear-gradient(90.49deg, #42229D 8.04%, #C7BEE0 63.4%, #8E7AC4 84.85%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            margin: 0,
-            fontWeight : 700,
-          }}
-        >
-          Double rewards and plus more coins
-        </h1>
+          {/* Subtitle Text */}
+          <h1
+            style={{
+              fontSize: '36px',
+              background: 'linear-gradient(90.49deg, #42229D 8.04%, #C7BEE0 63.4%, #8E7AC4 84.85%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              margin: 0,
+              fontWeight: 700,
+            }}
+          >
+            Double rewards and plus more coins
+          </h1>
 
-        {/* Introductory Text */}
-        <div className="text-[#B3A7D8] text-xl  mt-4">
-          BYP is one of the best decentralized liquid staking <br/> protocols for Solana.
-        </div>
-
-        {/* Info Cards */}
-        
-
-        <div className="bg-[#42229D] flex flex-col  md:flex-row justify-around items-start p-10 mt-[300px] mb-20 gap-8 md:gap-4 rounded-[5px] md:space-x-8"
-        style={{ boxShadow: "0px 4px 25.1px 0px #0000001F" }}
-        >
-          {/* Reward Info */}
-          <div className="text-center flex flex-col items-center">
-            <div className="bg-[#351B7E] w-20 h-20 flex items-center justify-center rounded-full mb-4">
-              <Image
-                src="/assets/reward.png"
-                alt="Maximized Rewards"
-                width={64}
-                height={64}
-
-              />
-            </div>
-            <p className="text-[#FAFAFA] font-semibold">Maximized Rewards</p>
-            <p className="text-[#DDDDDD] max-w-xs text-xs mt-2 leading-5">
-              Earn higher returns with our competitive staking rates, designed to give you the best value for your SOL investments.
-            </p>
+          {/* Introductory Text */}
+          <div className="text-[#B3A7D8] text-xl mt-4">
+            BYP is one of the best decentralized liquid staking <br /> protocols for Solana.
           </div>
 
-          {/* Security Info */}
-          <div className="text-center flex flex-col items-center">
-            <div className="bg-[#351B7E] w-20 h-20 flex items-center justify-center rounded-full mb-4">
-              <Image
-                src="/assets/security.png"
-                alt="Security"
-                width={64}
-                height={64}
-
-              />
+          {/* Info Cards */}
+          <div
+            className="bg-[#42229D] flex flex-col md:flex-row justify-around items-start p-10 mt-[300px] mb-20 gap-8 md:gap-4 rounded-[5px] md:space-x-8"
+            style={{ boxShadow: "0px 4px 25.1px 0px #0000001F" }}
+          >
+            {/* Reward Info */}
+            <div className="text-center flex flex-col items-center">
+              <div className="bg-[#351B7E] w-20 h-20 flex items-center justify-center rounded-full mb-4">
+                <Image src="/assets/reward.png" alt="Maximized Rewards" width={64} height={64} />
+              </div>
+              <p className="text-[#FAFAFA] font-semibold">Maximized Rewards</p>
+              <p className="text-[#DDDDDD] max-w-xs text-xs mt-2 leading-5">
+                Earn higher returns with our competitive staking rates, designed to give you the best value for your SOL investments.
+              </p>
             </div>
-            <p className="text-[#FAFAFA] font-semibold">Reliable security</p>
-            <p className="text-[#DDDDDD] max-w-xs text-xs mt-2 leading-5">
-              Top-tier security measures ensure your assets are protected the contribution to stability and growth of  Solana network.
-            </p>
-          </div>
 
-          {/* Fee Info */}
-          <div className="text-center flex flex-col items-center">
-            <div className="bg-[#351B7E] w-20 h-20 flex items-center justify-center rounded-full mb-4">
-              <Image
-                src="/assets/fee.png"
-                alt="Low Fees"
-                width={64}
-                height={64}
-
-              />
+            {/* Security Info */}
+            <div className="text-center flex flex-col items-center">
+              <div className="bg-[#351B7E] w-20 h-20 flex items-center justify-center rounded-full mb-4">
+                <Image src="/assets/security.png" alt="Security" width={64} height={64} />
+              </div>
+              <p className="text-[#FAFAFA] font-semibold">Reliable security</p>
+              <p className="text-[#DDDDDD] max-w-xs text-xs mt-2 leading-5">
+                Top-tier security measures ensure your assets are protected as a contribution to the stability and growth of the Solana network.
+              </p>
             </div>
-            <p className="text-[#FAFAFA] font-semibold">Low Fees</p>
-            <p className="text-[#DDDDDD] max-w-xs text-xs mt-2 leading-5">
-              Benefit from minimal fees, ensuring that more of your earnings stay in your pocket while you stake your SOL.
-            </p>
+
+            {/* Fee Info */}
+            <div className="text-center flex flex-col items-center">
+              <div className="bg-[#351B7E] w-20 h-20 flex items-center justify-center rounded-full mb-4">
+                <Image src="/assets/fee.png" alt="Low Fees" width={64} height={64} />
+              </div>
+              <p className="text-[#FAFAFA] font-semibold">Low Fees</p>
+              <p className="text-[#DDDDDD] max-w-xs text-xs mt-2 leading-5">
+                Benefit from minimal fees, ensuring that more of your earnings stay in your pocket while you stake your SOL.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Our Stats Section */}
-      <section
+       {/* Our Stats Section */}
+       <section
         id="our-stats"
         className="text-center flex flex-col items-center justify-center px-[5%] lg:px-[20%]"
         style={{ background: 'linear-gradient(180.09deg, #170C37 0.08%, #42229D 149.64%)' }}
@@ -233,7 +229,6 @@ const Home = () => {
 
        
       </section>
-
     </div>
   );
 };
