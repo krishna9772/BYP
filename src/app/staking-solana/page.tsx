@@ -22,7 +22,6 @@ const StakingSolana = () => {
     };
     const closeModal = () => setModalOpen(false);
 
-    const openConnectWalletModal = () => setConnectWalletModalOpen(true);
     const closeConnectWalletModal = () => setConnectWalletModalOpen(false);
 
     const copyAddress = () => {

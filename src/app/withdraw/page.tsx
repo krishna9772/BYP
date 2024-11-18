@@ -2,8 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
-import PrivateFarm from "@/components/Staking/PrivateFarm";
-import StakingCard from "@/components/Staking/StakingCard";
 import WalletModal from "@/components/Modal/WalletModal"; // Import the modal component
 import Image from "next/image";
 import Link from "next/link";
