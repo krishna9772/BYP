@@ -1,5 +1,5 @@
 import GradientButton from "@/components/Button/GradientButton";
-import CoinRateChart from "@/components/Chart/CoinRateChart";
+// import CoinRateChart from "@/components/Chart/CoinRateChart";
 import Image from "next/image";
 
 const Home = () => {
@@ -162,7 +162,7 @@ const Home = () => {
      
           <div className="w-full py-[62px]">
          
-                <CoinRateChart/>
+                {/* <CoinRateChart/> */}
           </div>
    
         <div className="mb-[100px]">

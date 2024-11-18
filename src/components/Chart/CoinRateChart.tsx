@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend, TooltipItem } from 'chart.js';
 
 // Register required components for Chart.js
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend);
@@ -41,7 +41,7 @@ const CoinRateChart: React.FC = () => {
               },
           tooltip: {
             callbacks: {
-              label: function (tooltipItem: { raw: any; }): string {
+              label: function (tooltipItem: TooltipItem<'line'>): string {
                 return `Value: ${tooltipItem.raw}`;
               },
             },
@@ -77,7 +77,7 @@ const CoinRateChart: React.FC = () => {
             max: 100,
             ticks: {
               stepSize: 20,
-              callback: function (value: any) {
+              callback: function (value: string | number) {
                 return value;
               },
               color: '#DEDEDE', 
