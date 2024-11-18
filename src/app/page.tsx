@@ -61,41 +61,11 @@ const Home = () => {
 
           {/* Info Cards */}
           <div
-            className="bg-[#42229D] flex flex-col md:flex-row justify-around items-start p-10 mt-[300px] mb-20 gap-8 md:gap-4 rounded-[5px] md:space-x-8"
+            className="flex flex-col md:flex-row justify-around items-start p-10 mt-[300px] mb-20 gap-8 md:gap-4 rounded-[5px] md:space-x-8"
             style={{ boxShadow: "0px 4px 25.1px 0px #0000001F" }}
           >
             {/* Reward Info */}
-            <div className="text-center flex flex-col items-center">
-              <div className="bg-[#351B7E] w-20 h-20 flex items-center justify-center rounded-full mb-4">
-                <Image src="/assets/reward.png" alt="Maximized Rewards" width={64} height={64} />
-              </div>
-              <p className="text-[#FAFAFA] font-semibold">Maximized Rewards</p>
-              <p className="text-[#DDDDDD] max-w-xs text-xs mt-2 leading-5">
-                Earn higher returns with our competitive staking rates, designed to give you the best value for your SOL investments.
-              </p>
-            </div>
-
-            {/* Security Info */}
-            <div className="text-center flex flex-col items-center">
-              <div className="bg-[#351B7E] w-20 h-20 flex items-center justify-center rounded-full mb-4">
-                <Image src="/assets/security.png" alt="Security" width={64} height={64} />
-              </div>
-              <p className="text-[#FAFAFA] font-semibold">Reliable security</p>
-              <p className="text-[#DDDDDD] max-w-xs text-xs mt-2 leading-5">
-                Top-tier security measures ensure your assets are protected as a contribution to the stability and growth of the Solana network.
-              </p>
-            </div>
-
-            {/* Fee Info */}
-            <div className="text-center flex flex-col items-center">
-              <div className="bg-[#351B7E] w-20 h-20 flex items-center justify-center rounded-full mb-4">
-                <Image src="/assets/fee.png" alt="Low Fees" width={64} height={64} />
-              </div>
-              <p className="text-[#FAFAFA] font-semibold">Low Fees</p>
-              <p className="text-[#DDDDDD] max-w-xs text-xs mt-2 leading-5">
-                Benefit from minimal fees, ensuring that more of your earnings stay in your pocket while you stake your SOL.
-              </p>
-            </div>
+            
           </div>
         </div>
       </div>

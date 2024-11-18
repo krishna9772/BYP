@@ -1,7 +1,4 @@
 import React from "react";
-import { WalletIcon } from "@solana/wallet-adapter-react-ui";
-import { useWallet } from "@solana/wallet-adapter-react"; // Ensure to import WalletName
-import { WalletName } from "@solana/wallet-adapter-base";
 import Image from "next/image";
 
 interface ConnectWalletModalProps {

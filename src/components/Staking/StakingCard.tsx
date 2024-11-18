@@ -1,7 +1,5 @@
 import Image from "next/image";
 import { useState } from "react";
-import GradientButton from "../Button/GradientButton";
-
 
 interface StakingCardProps {
   publicKey: string;
