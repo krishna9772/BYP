@@ -41,7 +41,7 @@ const CoinRateChart: React.FC = () => {
               },
           tooltip: {
             callbacks: {
-              label: function (tooltipItem: any): string {
+              label: function (tooltipItem: { raw: any; }): string {
                 return `Value: ${tooltipItem.raw}`;
               },
             },
