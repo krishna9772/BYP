@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Connection, PublicKey } from "@solana/web3.js";
 
 interface StakingCardProps {
   publicKey: string;
@@ -10,6 +11,22 @@ const StakingCard: React.FC<StakingCardProps> = ({ publicKey }) => {
   const [activeTab, setActiveTab] = useState("Stake");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("Value type");
+  const [walletBalance, setWalletBalance] = useState<number>(0);
+  const [inputValue, setInputValue] = useState<string>("");
+  const [inputError, setInputError] = useState<string>("");
+  
+
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      if (publicKey) {
+        const connection = new Connection("https://api.devnet.solana.com");
+        const balance = await connection.getBalance(new PublicKey(publicKey));
+        setWalletBalance(balance / 1e9); // Convert lamports to SOL
+      }
+    };
+    fetchBalance();
+  }, [publicKey]);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -20,26 +37,38 @@ const StakingCard: React.FC<StakingCardProps> = ({ publicKey }) => {
     setDropdownOpen(false);
   };
 
+  const handleInputChange = (value: string) => {
+    setInputValue(value);
+
+    const numericValue = parseFloat(value);
+
+   
+    if (numericValue > walletBalance) {
+      setInputError("Insufficient Amount.");
+    } else {
+      setInputError("");
+    }
+  };
+
+
   return (
     <div className="bg-[#140A2F] p-6 rounded-lg w-full max-w-md">
       {/* Tab Navigation */}
       <div className="text-sm font-semibold flex">
         <div
-          className={`p-[10px] rounded-l-[8px] w-[196px] h-[53px] flex justify-center items-center ${
-            activeTab === "Stake"
+          className={`p-[10px] rounded-l-[8px] w-[196px] h-[53px] flex justify-center items-center ${activeTab === "Stake"
               ? "bg-[#28145E] text-[#FAFAFA]"
               : "bg-[#241A40] text-[#B599AF]"
-          }`}
+            }`}
           onClick={() => setActiveTab("Stake")}
         >
           <p>Stake</p>
         </div>
         <div
-          className={`p-[10px] rounded-r-[8px] w-[196px] h-[53px] flex justify-center items-center ${
-            activeTab === "UnStake"
+          className={`p-[10px] rounded-r-[8px] w-[196px] h-[53px] flex justify-center items-center ${activeTab === "UnStake"
               ? "bg-[#28145E] text-[#FAFAFA]"
               : "bg-[#241A40] text-[#B599AF]"
-          }`}
+            }`}
           onClick={() => setActiveTab("UnStake")}
         >
           <p>Unstake</p>
@@ -64,13 +93,13 @@ const StakingCard: React.FC<StakingCardProps> = ({ publicKey }) => {
                 >
                   {selectedOption}
                   <span className={`ml-2 transform ${dropdownOpen ? "rotate-180" : ""}`}>
-    <Image
-      src="/assets/down_arrow.png"
-      alt="Down Arrow"
-      width={13}
-      height={8}
-    />
-  </span>
+                    <Image
+                      src="/assets/down_arrow.png"
+                      alt="Down Arrow"
+                      width={13}
+                      height={8}
+                    />
+                  </span>
                 </button>
 
                 {dropdownOpen && (
@@ -87,135 +116,140 @@ const StakingCard: React.FC<StakingCardProps> = ({ publicKey }) => {
                     >
                       Locked
                     </div>
-                    
+
                   </div>
                 )}
               </div>
             </div>
             <div className="bg-[#B3A7D814] flex justify-between items-center px-[22px] py-[2px] text-[#DDDDDD] rounded-[10px] text-xs mt-5">
-                <div>
-                    <p>Market</p>
-                </div>
-                <div>
-                    <p>1 BYP = 1.352 SOL</p>
-                </div>
+              <div>
+                <p>Market</p>
+              </div>
+              <div>
+                <p>1 BYP = 1.352 SOL</p>
+              </div>
             </div>
             <div className="mt-[50px]">
-              
-                <div className="flex justify-between px-[8px]">
-                  <div className="flex text-sm text-[#DDDDDD] gap-2 items-center">
-                  <Image
-                      src="/assets/solana_logo.png"
-                      alt="solana-logo"
-                      width={24}
-                      height={24}
-                    />
-                      <div>Stake SOL</div>
-                  </div>
 
-                  <div>
-                      <p className="text-[#DDDDDDDD] text-sm">
-                          <span>Available:</span>
-                          <span className="font-semibold">42.50 SOL</span>
-                      </p>
-                  </div>
-                </div>
-
-
-                <div className="border-[#797979] border-[0.5px] flex h-[49px] items-center rounded-lg overflow-hidden pr-[20px]">
-                  <input 
-                    type="number" 
-                    className="w-full px-4 py-2 text-[#797979] bg-transparent focus:outline-none font-semibold" 
-                    placeholder="0.00" 
-                    min="0"
-                    // style={{ appearance: 'textfield' }}
-                  />
-                  <button className="bg-[#684EB1] rounded-full w-[54px] h-[33px] font-semibold text-xs text-[#FAFAFA] px-[15px] py-[5px] ml-2">
-                    Max
-                  </button> 
-                </div>
-
-                <div className="text-end text-[#DDDDDDDD] text-xs  px-[8px] mt-2">
-                    <p>≈ 0.00 USD</p>
-                </div>
-
-                
-            </div>
-
-            <div className="mt-[50px]">
-              
               <div className="flex justify-between px-[8px]">
                 <div className="flex text-sm text-[#DDDDDD] gap-2 items-center">
-                <Image
+                  <Image
+                    src="/assets/solana_logo.png"
+                    alt="solana-logo"
+                    width={24}
+                    height={24}
+                  />
+                  <div>Stake SOL</div>
+                </div>
+
+                <div>
+                  <p className="text-[#DDDDDDDD] text-sm">
+                    <span>Available:</span>
+                    <span className="font-semibold">{walletBalance.toFixed(4)} SOL</span>
+                  </p>
+                </div>
+              </div>
+
+
+              <div className="border-[#797979] border-[0.5px] flex h-[49px] items-center rounded-lg overflow-hidden pr-[20px]">
+              <input
+                type="number"
+                value={inputValue}
+                onChange={(e) => handleInputChange(e.target.value)}
+                className="w-full px-4 py-2 text-[#797979] bg-transparent focus:outline-none font-semibold"
+                placeholder="0.00"
+                min="0"
+              />
+              <button
+                className="bg-[#684EB1] rounded-full w-[54px] h-[33px] font-semibold text-xs text-[#FAFAFA] px-[15px] py-[5px] ml-2"
+                onClick={() => handleInputChange(walletBalance.toString())}
+              >
+                Max
+              </button>
+              </div>
+              {inputError && <p className="text-red-500 text-xs mt-2">{inputError}</p>}
+
+              <div className="text-end text-[#DDDDDDDD] text-xs  px-[8px] mt-2">
+                <p>≈ 0.00 USD</p>
+              </div>
+
+
+            </div>
+
+            <div className="mt-[50px]">
+
+              <div className="flex justify-between px-[8px]">
+                <div className="flex text-sm text-[#DDDDDD] gap-2 items-center">
+                  <Image
                     src="/assets/byp_logo.png"
                     alt="solana-logo"
                     width={24}
                     height={24}
                   />
-                    <div>Receive BYP</div>
+                  <div>Receive BYP</div>
                 </div>
 
-              
+
               </div>
 
 
               <div className="border-[#797979] border-[0.5px] flex h-[49px] items-center rounded-lg overflow-hidden pr-[20px]">
-                <input 
-                  type="number" 
-                  className="w-full px-4 py-2 text-[#797979] bg-transparent focus:outline-none font-semibold" 
-                  placeholder="0.00" 
+                <input
+                  type="number"
+                  className="w-full px-4 py-2 text-[#797979] bg-transparent focus:outline-none font-semibold"
+                  placeholder="0.00"
                   min="0"
-                  // style={{ appearance: 'textfield' }}
+                // style={{ appearance: 'textfield' }}
                 />
               </div>
 
               <div className="text-end text-[#DDDDDDDD] text-xs  px-[8px] mt-2">
-                  <p>≈ 0.00 USD</p>
+                <p>≈ 0.00 USD</p>
               </div>
             </div>
 
 
             <div className="text-[#DDDDDDDD] text-xs mt-[40px] space-y-4">
-                  <div className="flex items-center gap-2">
-                      <div>Details</div>
-                      <hr className="border-[#797979] border-[0.5px] w-full" />
-                  </div>
+              <div className="flex items-center gap-2">
+                <div>Details</div>
+                <hr className="border-[#797979] border-[0.5px] w-full" />
+              </div>
 
-                  <div className="flex items-center justify-between">
-                    <div>Estimated AYP</div>
-                    <div>7%</div>
-                  </div>
+              <div className="flex items-center justify-between">
+                <div>Estimated AYP</div>
+                <div>7%</div>
+              </div>
 
-                  <div className="flex items-center justify-between">
-                    <div>Estimated earn</div>
-                    <div>2.29% per month</div>
-                  </div>
+              <div className="flex items-center justify-between">
+                <div>Estimated earn</div>
+                <div>2.29% per month</div>
+              </div>
 
-                  <div className="flex items-center justify-between">
-                    <div>Service fee</div>
-                    <div>0.03 SOL</div>
-                  </div>
+              <div className="flex items-center justify-between">
+                <div>Service fee</div>
+                <div>0.03 SOL</div>
+              </div>
             </div>
-           
+
 
             <div className="w-full mt-10">
               {/* <GradientButton href="/start-staking" label="Stake" download = {false}/> */}
-              
+
               {/* <button className="bg-gradient-to-r from-[#42229D] to-[#470038] text-white  rounded-[8px] shadow-lg hover:opacity-90 transition-opacity flex items-center w-full h-[50px] justify-center">
                 <span>Stake</span>
               </button> */}
               <button
-                  className={`w-full py-[12px] rounded-[8px] shadow-lg flex items-center justify-center mt-[45px] ${publicKey
-                          ? 'bg-gradient-to-r from-[#42229D] to-[#470038] text-white hover:opacity-90 transition-opacity'
-                          : 'bg-[#2A2538] text-[#A7A7A7] cursor-not-allowed opacity-90'
-                      }`}
-                  disabled={!publicKey} // Disable button if publicKey does not exist
+                className={`w-full py-[12px] rounded-[8px] shadow-lg flex items-center justify-center mt-[45px] ${publicKey
+                  ? 'bg-gradient-to-r from-[#42229D] to-[#470038] text-white hover:opacity-90 transition-opacity'
+                  : 'bg-[#2A2538] text-[#A7A7A7] cursor-not-allowed opacity-90'
+                  }`}
+                disabled={!publicKey} // Disable button if publicKey does not exist
               >
-                  <span className="font-semibold">
-                      {publicKey ? 'Stake' : 'Stake'} {/* Text stays "Withdraw" */}
-                  </span>
-                </button>
-   
+                <span className="font-semibold">
+                  {publicKey ? 'Stake' : 'Stake'} {/* Text stays "Withdraw" */}
+                </span>
+              </button>
+
             </div>
           </div>
         ) : (
@@ -237,7 +271,7 @@ const StakingCard: React.FC<StakingCardProps> = ({ publicKey }) => {
                     {/* {dropdownOpen ? "▲" : "▼"} */}
 
                     {
-                        <Image
+                      <Image
                         src="/assets/down_arrow.png"
                         alt="Down Arrow"
                         width={13}
@@ -261,136 +295,136 @@ const StakingCard: React.FC<StakingCardProps> = ({ publicKey }) => {
                     >
                       Locked
                     </div>
-                    
+
                   </div>
                 )}
               </div>
             </div>
             <div className="bg-[#B3A7D814] flex justify-between items-center px-[22px] py-[2px] text-[#DDDDDD] rounded-[10px] text-xs mt-5">
-                <div>
-                    <p>Market</p>
-                </div>
-                <div>
-                    <p>1 BYP = 1.352 SOL</p>
-                </div>
+              <div>
+                <p>Market</p>
+              </div>
+              <div>
+                <p>1 BYP = 1.352 SOL</p>
+              </div>
             </div>
             <div className="mt-[50px]">
-              
-                <div className="flex justify-between px-[8px]">
-                  <div className="flex text-sm text-[#DDDDDD] gap-2 items-center">
-                  <Image
-                      src="/assets/solana_logo.png"
-                      alt="solana-logo"
-                      width={24}
-                      height={24}
-                    />
-                      <div>Stake SOL</div>
-                  </div>
 
-                  <div>
-                      <p className="text-[#DDDDDDDD] text-sm">
-                          <span>Available:</span>
-                          <span className="font-semibold">42.50 SOL</span>
-                      </p>
-                  </div>
-                </div>
-
-
-                <div className="border-[#797979] border-[0.5px] flex h-[49px] items-center rounded-lg overflow-hidden pr-[20px]">
-                  <input 
-                    type="number" 
-                    className="w-full px-4 py-2 text-[#797979] bg-transparent focus:outline-none font-semibold" 
-                    placeholder="0.00" 
-                    min="0"
-                    // style={{ appearance: 'textfield' }}
-                  />
-                  <button className="bg-[#684EB1] rounded-full w-[54px] h-[33px] font-semibold text-xs text-[#FAFAFA] px-[15px] py-[5px] ml-2">
-                    Max
-                  </button> 
-                </div>
-
-                <div className="text-end text-[#DDDDDDDD] text-xs  px-[8px] mt-2">
-                    <p>≈ 0.00 USD</p>
-                </div>
-
-                
-            </div>
-
-            <div className="mt-[50px]">
-              
               <div className="flex justify-between px-[8px]">
                 <div className="flex text-sm text-[#DDDDDD] gap-2 items-center">
-                <Image
+                  <Image
+                    src="/assets/solana_logo.png"
+                    alt="solana-logo"
+                    width={24}
+                    height={24}
+                  />
+                  <div>Stake SOL</div>
+                </div>
+
+                <div>
+                  <p className="text-[#DDDDDDDD] text-sm">
+                    <span>Available:</span>
+                    <span className="font-semibold">42.50 SOL</span>
+                  </p>
+                </div>
+              </div>
+
+
+              <div className="border-[#797979] border-[0.5px] flex h-[49px] items-center rounded-lg overflow-hidden pr-[20px]">
+                <input
+                  type="number"
+                  className="w-full px-4 py-2 text-[#797979] bg-transparent focus:outline-none font-semibold"
+                  placeholder="0.00"
+                  min="0"
+                // style={{ appearance: 'textfield' }}
+                />
+                <button className="bg-[#684EB1] rounded-full w-[54px] h-[33px] font-semibold text-xs text-[#FAFAFA] px-[15px] py-[5px] ml-2">
+                  Max
+                </button>
+              </div>
+
+              <div className="text-end text-[#DDDDDDDD] text-xs  px-[8px] mt-2">
+                <p>≈ 0.00 USD</p>
+              </div>
+
+
+            </div>
+
+            <div className="mt-[50px]">
+
+              <div className="flex justify-between px-[8px]">
+                <div className="flex text-sm text-[#DDDDDD] gap-2 items-center">
+                  <Image
                     src="/assets/byp_logo.png"
                     alt="solana-logo"
                     width={24}
                     height={24}
                   />
-                    <div>Receive BYP</div>
+                  <div>Receive BYP</div>
                 </div>
 
-              
+
               </div>
 
 
               <div className="border-[#797979] border-[0.5px] flex h-[49px] items-center rounded-lg overflow-hidden pr-[20px]">
-                <input 
-                  type="number" 
-                  className="w-full px-4 py-2 text-[#797979] bg-transparent focus:outline-none font-semibold" 
-                  placeholder="0.00" 
+                <input
+                  type="number"
+                  className="w-full px-4 py-2 text-[#797979] bg-transparent focus:outline-none font-semibold"
+                  placeholder="0.00"
                   min="0"
-                  // style={{ appearance: 'textfield' }}
+                // style={{ appearance: 'textfield' }}
                 />
               </div>
 
               <div className="text-end text-[#DDDDDDDD] text-xs  px-[8px] mt-2">
-                  <p>≈ 0.00 USD</p>
+                <p>≈ 0.00 USD</p>
               </div>
             </div>
 
 
             <div className="text-[#DDDDDDDD] text-xs mt-[40px] space-y-4">
-                  <div className="flex items-center gap-2">
-                      <div>Details</div>
-                      <hr className="border-[#797979] border-[0.5px] w-full" />
-                  </div>
+              <div className="flex items-center gap-2">
+                <div>Details</div>
+                <hr className="border-[#797979] border-[0.5px] w-full" />
+              </div>
 
-                  <div className="flex items-center justify-between">
-                    <div>Estimated AYP</div>
-                    <div>7%</div>
-                  </div>
+              <div className="flex items-center justify-between">
+                <div>Estimated AYP</div>
+                <div>7%</div>
+              </div>
 
-                  <div className="flex items-center justify-between">
-                    <div>Estimated earn</div>
-                    <div>2.29% per month</div>
-                  </div>
+              <div className="flex items-center justify-between">
+                <div>Estimated earn</div>
+                <div>2.29% per month</div>
+              </div>
 
-                  <div className="flex items-center justify-between">
-                    <div>Service fee</div>
-                    <div>0.03 SOL</div>
-                  </div>
+              <div className="flex items-center justify-between">
+                <div>Service fee</div>
+                <div>0.03 SOL</div>
+              </div>
             </div>
-           
+
 
             <div className="w-full mt-10">
               {/* <GradientButton href="/start-staking" label="Stake" download = {false}/> */}
-              
+
               {/* <button className="bg-gradient-to-r from-[#42229D] to-[#470038] text-white  rounded-[8px] shadow-lg hover:opacity-90 transition-opacity flex items-center w-full h-[50px] justify-center">
                 <span>Unstake</span>
               </button> */}
-               <button
-                  className={`w-full py-[12px] rounded-[8px] shadow-lg flex items-center justify-center mt-[45px] ${publicKey
-                          ? 'bg-gradient-to-r from-[#42229D] to-[#470038] text-white hover:opacity-90 transition-opacity'
-                          : 'bg-[#2A2538] text-[#A7A7A7] cursor-not-allowed opacity-90'
-                      }`}
-                  disabled={!publicKey} // Disable button if publicKey does not exist
+              <button
+                className={`w-full py-[12px] rounded-[8px] shadow-lg flex items-center justify-center mt-[45px] ${publicKey
+                  ? 'bg-gradient-to-r from-[#42229D] to-[#470038] text-white hover:opacity-90 transition-opacity'
+                  : 'bg-[#2A2538] text-[#A7A7A7] cursor-not-allowed opacity-90'
+                  }`}
+                disabled={!publicKey} // Disable button if publicKey does not exist
               >
-                  <span className="font-semibold">
-                      {publicKey ? 'Unstake' : 'Unstake'} {/* Text stays "Withdraw" */}
-                  </span>
-                </button>
-   
-   
+                <span className="font-semibold">
+                  {publicKey ? 'Unstake' : 'Unstake'} {/* Text stays "Withdraw" */}
+                </span>
+              </button>
+
+
             </div>
           </div>
         )}
